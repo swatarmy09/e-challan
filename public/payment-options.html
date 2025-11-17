@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Payment Options</title>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background: #ffffff;
+        font-family: Arial, sans-serif;
+        text-align: center;
+    }
+
+    .container {
+        margin-top: 30px;
+        padding: 20px;
+    }
+
+    .title {
+        font-size: 22px;
+        font-weight: bold;
+        color: #00a21b;
+    }
+
+    .subtitle {
+        margin-top: 5px;
+        font-size: 15px;
+        color: #444;
+    }
+
+    .select-text {
+        margin-top: 20px;
+        font-size: 17px;
+        font-weight: bold;
+        color: #333;
+    }
+
+    .methods {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin-top: 20px;
+        flex-wrap: wrap;
+    }
+
+    .method-card {
+        width: 100px;
+        background: white;
+        padding: 15px;
+        border-radius: 15px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        cursor: pointer;
+        transition: 0.2s;
+        border: 2px solid transparent;
+    }
+
+    .method-card.selected {
+        border-color: #32e632;
+        background: #f0fff0;
+    }
+
+    .method-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+    }
+
+    .method-card img {
+        width: 45px;
+        height: 45px;
+    }
+
+    .method-card p {
+        margin-top: 8px;
+        font-size: 14px;
+        font-weight: bold;
+        color: #333;
+    }
+
+    .proceed-btn {
+        width: 70%;
+        padding: 15px;
+        background: #32e632;
+        color: white;
+        border: none;
+        margin-top: 35px;
+        border-radius: 10px;
+        font-size: 20px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    .proceed-btn:hover {
+        background: #2dcc2d;
+    }
+
+    .footer-logos {
+        margin-top: 40px;
+    }
+
+    .footer-logos img {
+        height: 45px;
+        margin: 0 10px;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="title">Total Due: ₹1 Only</div>
+    <div class="subtitle">UPI / Debit Card / Net-Banking</div>
+
+    <div class="select-text">Select a Payment Method</div>
+
+    <div class="methods">
+        
+        <!-- Option 1 -->
+        <div class="method-card" onclick="selectMethod(this)">
+            <img src="https://cdn-icons-png.flaticon.com/512/5968/5968705.png">
+            <p>UPI</p>
+        </div>
+
+        <!-- Option 2 -->
+        <div class="method-card" onclick="selectMethod(this)">
+            <img src="https://cdn-icons-png.flaticon.com/512/633/633611.png">
+            <p>Card</p>
+        </div>
+
+        <!-- Option 3 -->
+        <div class="method-card" onclick="selectMethod(this)">
+            <img src="https://cdn-icons-png.flaticon.com/512/1048/1048949.png">
+            <p>Net Banking</p>
+        </div>
+
+    </div>
+
+    <button class="proceed-btn" onclick="proceed()">PROCEED</button>
+
+    <div class="footer-logos">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/SSL_shield.png">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Mastercard-logo.png">
+    </div>
+
+</div>
+
+<script>
+let selectedMethod = null;
+
+function selectMethod(card) {
+    // Remove selected class from all cards
+    document.querySelectorAll('.method-card').forEach(c => c.classList.remove('selected'));
+    // Add selected class to clicked card
+    card.classList.add('selected');
+    selectedMethod = card.querySelector('p').textContent;
+}
+
+function proceed() {
+    if (selectedMethod) {
+        window.location.href = 'final-page.html';
+    } else {
+        alert('Please select a payment method.');
+    }
+}
+</script>
+
+</body>
+</html>

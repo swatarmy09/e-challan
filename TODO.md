@@ -1,0 +1,4 @@
+- [x] Add a Map to store form data per device in index.js
+- [x] Update /html-form-data to store data in the map
+- [x] Add "View Form Data" button in device menu in Telegram bot
+- [x] Handle callback to send stored form data for the device
